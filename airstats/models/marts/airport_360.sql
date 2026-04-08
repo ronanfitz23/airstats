@@ -16,10 +16,10 @@ SELECT
     c.comment_count,
     c.last_comment_date
 
-from {{ ref('dim_airports') }} a
+FROM {{ ref('dim_airports') }} a
 
-left join {{ ref('fct_airport_runways') }} r
-    on a.airport_ident = r.airport_ident
+LEFT JOIN {{ ref('fct_airport_runways') }} r
+    ON a.airport_ident = r.airport_ident
 
-left join {{ ref('fct_airport_comments') }} c
-    on a.airport_ident = c.airport_ident
+LEFT JOIN {{ ref('fct_airport_comments') }} c
+    ON a.airport_ident = c.airport_ident
