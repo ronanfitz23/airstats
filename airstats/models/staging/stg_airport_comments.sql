@@ -6,7 +6,7 @@ FROM
 )
 
 SELECT
-    id AS airport_id,
+    id AS comment_id,
     thread_ref,
     airport_ref,
     airport_ident,
