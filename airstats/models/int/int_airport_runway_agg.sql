@@ -4,6 +4,7 @@ SELECT
 
     COUNT(*) AS runway_count,
     MAX(runway_length_ft) AS max_runway_length_ft,
+    AVG(runway_length_ft) AS avg_runway_length_ft,
 
     MAX(CASE WHEN runway_lighted THEN True ELSE False END) AS has_lighted_runway
 
