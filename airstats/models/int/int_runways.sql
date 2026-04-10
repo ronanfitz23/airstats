@@ -7,17 +7,19 @@ WITH stg_runways AS (
 
 SELECT
     runway_id,
-    airport_ref,
+    airport_id,
     airport_ident,
     runway_length_ft,
     runway_width_ft,
     runway_surface,
     CASE 
-        WHEN runway_lighted = 1 THEN true
-        ELSE false
+        WHEN runway_lighted = 1 THEN True
+        WHEN runway_lighted = 0 THEN False
+        ELSE NULL
     END AS runway_lighted,
     CASE
         WHEN runway_closed = 1 THEN True
-        ELSE False
+        WHEN runway_closed = 0 THEN False
+        ELSE NULL
     END AS runway_closed
 FROM stg_runways

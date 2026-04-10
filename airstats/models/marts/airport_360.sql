@@ -1,5 +1,6 @@
 SELECT
     a.airport_ident,
+    a.airport_id,
     a.airport_name,
     a.iso_country,
     a.iso_region,
@@ -19,7 +20,7 @@ SELECT
 FROM {{ ref('dim_airports') }} a
 
 LEFT JOIN {{ ref('fct_airport_runways') }} r
-    ON a.airport_ident = r.airport_ident
+    ON a.airport_id = r.airport_id
 
 LEFT JOIN {{ ref('fct_airport_comments') }} c
-    ON a.airport_ident = c.airport_ident
+    ON a.airport_id = c.airport_id

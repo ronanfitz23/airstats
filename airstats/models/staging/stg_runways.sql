@@ -7,7 +7,7 @@ WITH raw_runways AS (
 
 SELECT
     id AS runway_id,
-    airport_ref,
+    airport_ref AS airport_id,
     airport_ident,
     length_ft AS runway_length_ft,
     width_ft AS runway_width_ft,

@@ -1,0 +1,52 @@
+models:
+  - name: airport_360
+    description: Wide airport table
+    columns:
+      - name: airport_id
+        tests: 
+          - not_null
+          - unique
+          - relationships:
+              to: ref('dim_airports')
+              field: airport_id
+      - name: airport_ident
+        tests: [not_null, unique]
+      - name: airport_name
+        tests: [not_null]
+      - name: iso_region
+        tests: [not_null]
+      - name: has_lighted_runway
+        tests:
+          - accepted_values: 
+              values: [true, false]
+
+  - name: dim_airports
+    description: Airport dimension table
+    columns:
+      - name: airport_id
+        tests: [not_null, unique]
+    
+
+  - name: dim_countries
+    description: Country dimension table
+    columns:
+      - name: iso_country
+        tests: [not_null, unique] 
+
+  - name: dim_regions
+    description: Region dimension table
+    columns:
+      - name: iso_region
+        tests: [not_null, unique] 
+
+  - name: fct_airport_runways
+    description: Airport Runway fact table
+    columns:
+      - name: airport_id
+        tests: [not_null, unique] 
+
+  - name: fct_airport_comments
+    description: Airport Comments fact table
+    columns:
+      - name: airport_id
+        tests: [not_null, unique]

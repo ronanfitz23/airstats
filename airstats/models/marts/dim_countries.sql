@@ -7,7 +7,7 @@ countries AS (
     SELECT
         iso_country,
         COUNT(*) AS airport_count
-    FROm airports
+    FROM airports
     GROUP BY iso_country
 )
 
